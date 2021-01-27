@@ -3,7 +3,7 @@ layout: page
 title: 2. Backtest
 ---
 
-Lets backtest the portfolio! All my (messy) code and data is available at my Github page. As data for some of the funds are limited, I've had to make some changes to the portfolio for the backtest. The changes I've made, compared to the portfolio I'm planning to implement are the following:
+Lets backtest the portfolio! All my (messy) [code](https://github.com/DriftwoodPalace/Dragon-Portfolio/tree/main/code) and data is available at my Github page. As data for some of the funds are limited, I've had to make some changes to the portfolio for the backtest. The changes I've made, compared to the portfolio I'm planning to implement are the following:
 
 * "Avanza Global" changed to "SPP Global A"
 * "Nordea 1 - Long Duration US Bd BP SEK" changed to "iShares 20+ Year Treasury Bond ETF (TLT)". Adjusted TLT to show returns in SEK as well.
