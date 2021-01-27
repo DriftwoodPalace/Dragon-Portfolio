@@ -11,7 +11,7 @@ According to the paper "The allegory of the hawk and serpent". The dragon portfo
 * 18% Commodity trend
 * 21% Long volatility
 
-![Figure_23](Dragon-Portfolio/assets/Figure_23.png)
+![Figure_23](https://driftwoodpalace.github.io/Dragon-Portfolio/assets/Figure_23)
 
 
 So, that's the allocation I plan of using.
