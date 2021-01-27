@@ -175,4 +175,4 @@ I'm personally leaning against setting a limit of a +-15% change for any individ
 
 I could live with that for the advantage of doing fewer trades.
 
-If you are interested in how a dragon portfolio performs if money is taken out of the portfolio (for example when you retire), check out: [Retiring](/retiring)
+If you are interested in how a dragon portfolio performs if money is taken out of the portfolio (for example when you retire), check out: [Retiring](../retiring)
