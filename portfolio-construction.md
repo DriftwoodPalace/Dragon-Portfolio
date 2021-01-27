@@ -106,4 +106,4 @@ The portfolio will then look like this:
 ![Figure_24](./Figure_24.png)
 
 
-Next, let's backtest this portfolio and decide for a strategy on how to implement it: [Backtest](Dragon-Portfolio/backtest)
+Next, let's backtest this portfolio and decide for a strategy on how to implement it: [Backtest](./backtest)
