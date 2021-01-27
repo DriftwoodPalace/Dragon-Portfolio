@@ -103,7 +103,7 @@ I've tried to minimize the number of vehicles in the first three buckets and max
 
 The portfolio will then look like this:
 
-![Figure_24](./assets/Figure_24.png)
+![Figure_24](./Figure_24.png)
 
 
-Next, let's backtest this portfolio and decide for a strategy on how to implement it: [Backtest](/backtest)
+Next, let's backtest this portfolio and decide for a strategy on how to implement it: [Backtest](Dragon-Portfolio/backtest)
