@@ -32,10 +32,10 @@ That gives us:
 * Max drawdown: -11.1%
 
 As we can see, the returns are fairly steady:
-![Figure_1](/assets/Figure_1.png)
+![Figure_1](./Figure_1.png)
 
 And max drawdowns are fairly limited:
-![Figure_2](/assets/Figure_2.png)
+![Figure_2](./Figure_2.png)
 
 We can compare this to a classic 60/40 portfolio of global equities and US bonds. 
 
@@ -49,10 +49,10 @@ It's had the following returns:
 
 
 So, very similar returns to the dragon portfolio:
-![Figure_3](/assets/Figure_3.png)
+![Figure_3](./Figure_3.png)
 
 And drawdowns wasn't terribly different either (but it was harder hit by the financial crisis):
-![Figure_4](/assets/Figure_4.png)
+![Figure_4](./Figure_4.png)
 
 This is over a period where equities and bonds has rallied a lot. Sure the start date right before the financial crisis affects the result. But still impressive by the dragon portfolio IMO.
 
@@ -64,9 +64,9 @@ If we look at a portfolio with 100% global equities this is the result (remember
 * Sharpe ratio: 1.97
 * Max drawdown: -37.1%
   
-![Figure_5](/assets/Figure_5.png)
+![Figure_5](./Figure_5.png)
 
-![Figure_6](/assets/Figure_6.png)
+![Figure_6](./Figure_6.png)
 
 Pretty surprising if you ask me (again the start date is of course a big factor here). 
 
@@ -88,8 +88,8 @@ This is the returns:
 * Standard deviation: 0.334
 * Sharpe ratio: 2.68
 * Max drawdown: -11.0%
-![Figure_7](/assets/Figure_7.png)
-![Figure_8](/assets/Figure_8.png)
+![Figure_7](./Figure_7.png)
+![Figure_8](./Figure_8.png)
 
 As one could imagine, not that much of a difference from 1 month.
 
@@ -100,8 +100,8 @@ Lets try every 6 months:
 * Standard deviation: 0.341
 * Sharpe ratio: 2.60
 * Max drawdown: -11.0%
-![Figure_9](/assets/Figure_9.png)
-![Figure_10](/assets/Figure_10.png)
+![Figure_9](./Figure_9.png)
+![Figure_10](./Figure_10.png)
 
 Some difference, but still not that much. 
 
@@ -114,8 +114,8 @@ Every 12 months:
 * Standard deviation: 0.340
 * Sharpe ratio: 2.57
 * Max drawdown: -11.4%
-![Figure_11](/assets/Figure_11.png)
-![Figure_12](/assets/Figure_12.png)
+![Figure_11](./Figure_11.png)
+![Figure_12](./Figure_12.png)
 
 Your returns would have taken a small hit. But still not that different from rebalancing every month.
 
@@ -136,8 +136,8 @@ Lets start with 10% as a limit. That gives the following returns:
 * Standard deviation: 0.329
 * Sharpe ratio: 2.75
 * Max drawdown: -11.0%
-![Figure_13](/assets/Figure_13.png)
-![Figure_14](/assets/Figure_14.png)
+![Figure_13](./Figure_13.png)
+![Figure_14](./Figure_14.png)
 
 This portfolio actually performed slightly better then the first one.
 
@@ -150,8 +150,8 @@ This is with 15%:
 * Standard deviation: 0.330
 * Sharpe ratio: 2.77
 * Max drawdown: -10.6%
-![Figure_15](/assets/Figure_15.png)
-![Figure_16](/assets/Figure_16.png)
+![Figure_15](./Figure_15.png)
+![Figure_16](./Figure_16.png)
 
 This actually gives us better returns. The number of transactions to follow this plan is reduced to 111. Less then one transaction a month and about 2 transactions every quarter. Can we get away with 20%?
 
@@ -162,8 +162,8 @@ Returns with 20% limit:
 * Standard deviation: 0.331
 * Sharpe ratio: 2.70
 * Max drawdown: -10.4%
-![Figure_17](/assets/Figure_17.png)
-![Figure_18](/assets/Figure_18.png)
+![Figure_17](./Figure_17.png)
+![Figure_18](./Figure_18.png)
 
 It's starting to affect returns slightly. But you only had to do 63 transactions in 13 years (~1 transaction every quarter). Maybe you could go even higher. But it's a risk I don't want to take. With the limited data I have to work with there might be errors with that strategy that doesn't show up here.
 
