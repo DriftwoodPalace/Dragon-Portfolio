@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      3. Retiring &middot; Lanyon
+    
+  </title>
+
+  
+  <link rel="canonical" href="http://localhost:4000/retiring/">
+  
+
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:4000/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="http://localhost:4000/backtest/">2. Backtest</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="http://localhost:4000/portfolio-construction/">1. Portfolio construction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="http://localhost:4000/retiring/">3. Retiring</a>
+        
+      
+    
+      
+    
+      
+    
+
+    <a class="sidebar-nav-item" href="/archive/v3.0.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v3.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2021. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Lanyon</a>
+            <small>A Jekyll theme</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">3. Retiring</h1>
+  <p>How is the dragon portfolio affected if you take money out of it? With the low volatility you expect it to perform rather well. But, lets check it with data. I’m using the same portfolio and data as in the backtest and I’m rebalancing every month.</p>
+
+<p>The numbers I’m going to use is the 25X annual expenses that’s popular with the “FIRE-community”. The start date is again november 2007. Not the best of months to retire if you were planning to live of off your capital for the rest of your life.</p>
+
+<p>Expenses are adjusted with the Swedish CPI-numbers (as I am Swedish).</p>
+
+<p>We start with 5 000 000 and take out 200 000 (+inflation) at the end of every year (to cover next years expenses).</p>
+
+<h4 id="dragon-portfolio">Dragon portfolio</h4>
+
+<p>The dragon portfolio tackles this scenario well. A slight blip in the beginning of the financial crisis before it was of to the races:</p>
+
+<p><img src="/assets/Figure_19.png" alt="Figure_19" /></p>
+
+<p>As was presented in the paper, it surely looks like an excellent choice for a retire.</p>
+
+<h4 id="6040">60/40</h4>
+
+<p>We can compare it to the classic 60/40 portfolio (global equities/US bonds). Using the same data we get this situation:</p>
+
+<p><img src="/assets/Figure_20.png" alt="Figure_20" /></p>
+
+<p>You would’ve been under the 25X mark for 7 years, but the bull market would’ve eventually have saved you. If you were a Swedish retiree who put your 40% part in to Swedish bonds the situation would’ve been different:</p>
+
+<p><img src="/assets/Figure_21.png" alt="Figure_21" /></p>
+
+<p>As late as march 2020 you would’ve been under the 25X mark. Maybe a better representation of where we are today as Swedish bonds had lower to fall.</p>
+
+<h4 id="100-equities">100% equities</h4>
+
+<p>Yeah, this sounds reckless. But it’s actually a fairly common strategy for people devoted to the “FIRE-strategy”. If you consider 25X as a safe limit to retire, reached that in November 2007 and retired with all money in a global equity fund. You would’ve been down to 15X your yearly expenses after less then two years. Only a record long stock market rally would’ve taken you up to 25X your yearly expenses again.</p>
+
+<p>If I had retired at say 35, I would not have been very comfortable in the period 2008-2013:
+<img src="/assets/Figure_22.png" alt="Figure_21" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>If I had plans to retire I would definitely try to implement the dragon portfolio.</p>
+
+<p>If you have any comments about my implementation, feel free to reach out. If you’ve found any errors in my reasoning, no one would be happier to hear them then I.</p>
+
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
