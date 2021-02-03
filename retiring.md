@@ -1,8 +1,3 @@
----
-layout: page
-title: 3. Retiring
----
-
 How is the dragon portfolio affected if you take money out of it? With the low volatility you expect it to perform rather well. But, lets check it with data. I'm using the same portfolio and data as in the backtest and I'm rebalancing every month.
 
 The numbers I'm going to use is the 25X annual expenses that's popular with the "FIRE-community". The start date is again november 2007. Not the best of months to retire if you were planning to live of off your capital for the rest of your life. 
