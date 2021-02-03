@@ -13,5 +13,5 @@ This implementation of the portfolio is targeted at European investors. We have 
 
 I, myself, plan to put at least 80% of my net worth in to this portfolio and hold it for 30 years+. So any critique or suggestions for how to improve my implementation of the portfolio is welcome. I am not a professional investor, so this is not investment advise. Do your own research etc. If you want to contact me, feel free to do so [@DriftwoodPalace](https://twitter.com/DriftwoodPalace) on Twitter.
 
-
-Lets get going with [Portfolio construction](/portfolio-construction). You can select any subject you like in the sidebar (click **☰**) to the left. 
+d
+Lets get going with [Portfolio construction](/Dragon-Portfolio/portfolio-construction). You can select any subject you like in the sidebar (click **☰**) to the left. 
