@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import matplotlib.dates as mdates
+import math
 
 ### PORTFOLIO
 # 24% EQUITY
@@ -13,14 +14,13 @@ import matplotlib.dates as mdates
 # 21% LONG VOL
 
 ### EQUITY
-# 50% GLOBAL, 12% of tot
-# 25% USA, 6% of tot
-# 25 OMXS30, 6% of tot
+# 80% GLOBAL, 19.2% of tot
+# 20% EM, 4.8% of tot
 
 ### FIXED INCOME
 # US TSY 50%, 9% of tot
-# US NOTES, 25% 4.5% of tot
-# SEK BONDS, 25%, 4.5% of tot
+# Corp bonds, 25% 4.5% of tot
+# EM BONDS, 25%, 4.5% of tot
 
 ### GOLD
 # GLD 90%, 17.1% of tot
@@ -40,30 +40,39 @@ import matplotlib.dates as mdates
 ### GLOBAL VARIABLES / DATA ###
 start_date = '2007-11'
 years = 13.167
-global_data_raw = pd.read_csv('SPP_aktiefond_global.csv')
+global_data_raw = pd.read_csv('MSCI_World_SEK.csv')
 global_data_raw = global_data_raw.set_index('Date')
 global_data = pd.DataFrame(global_data_raw.loc[start_date:])
-us_data_raw = pd.read_csv('SPP_aktiefond_USA.csv')
-us_data_raw = us_data_raw.set_index('Date')
-us_data = pd.DataFrame(us_data_raw.loc[start_date:])
-avanza_zero_raw = pd.read_csv('Avanza_zero.csv')
-avanza_zero_raw = avanza_zero_raw.set_index('Date')
-avanza_zero = pd.DataFrame(avanza_zero_raw.loc[start_date:])
+# us_data_raw = pd.read_csv('SPP_aktiefond_USA.csv')
+# us_data_raw = us_data_raw.set_index('Date')
+# us_data = pd.DataFrame(us_data_raw.loc[start_date:])
+# avanza_zero_raw = pd.read_csv('Avanza_zero.csv')
+# avanza_zero_raw = avanza_zero_raw.set_index('Date')
+# avanza_zero = pd.DataFrame(avanza_zero_raw.loc[start_date:])
+em_data = pd.read_csv('MSCI_EM_SEK.csv')
+em_data = em_data.set_index('Date')
+em_stock = pd.DataFrame(em_data.loc[start_date:])
 tlt_raw = pd.read_csv('TLT_SEK.csv')
 tlt_raw = tlt_raw.set_index('Date')
 tlt = pd.DataFrame(tlt_raw.loc[start_date:])
-SEB_kortranta_raw = pd.read_csv('SEB_kortrantefond_USD_sek.csv')
-SEB_kortranta_raw = SEB_kortranta_raw.set_index('Date')
-SEB_kortranta = pd.DataFrame(SEB_kortranta_raw.loc[start_date:])
-AMF_rantefond_raw = pd.read_csv('AMF_rantefond_long.csv')
-AMF_rantefond_raw = AMF_rantefond_raw.set_index('Date')
-AMF_rantefond = pd.DataFrame(AMF_rantefond_raw.loc[start_date:])
+# SEB_kortranta_raw = pd.read_csv('SEB_kortrantefond_USD_sek.csv')
+# SEB_kortranta_raw = SEB_kortranta_raw.set_index('Date')
+# SEB_kortranta = pd.DataFrame(SEB_kortranta_raw.loc[start_date:])
+# AMF_rantefond_raw = pd.read_csv('AMF_rantefond_long.csv')
+# AMF_rantefond_raw = AMF_rantefond_raw.set_index('Date')
+# AMF_rantefond = pd.DataFrame(AMF_rantefond_raw.loc[start_date:])
+corp_bond_data = pd.read_csv('Barclays_global_corp_SEK.csv')
+corp_bond_data = corp_bond_data.set_index('Date')
+corp_bond = pd.DataFrame(corp_bond_data.loc[start_date:])
+em_bond_data = pd.read_csv('ishares_JPMorgan_EM_bond_sek.csv')
+em_bond_data = em_bond_data.set_index('Date')
+em_bond = pd.DataFrame(em_bond_data.loc[start_date:])
 gld_raw = pd.read_csv('GLD_SEK.csv')
 gld_raw = gld_raw.set_index('Date')
 gld = pd.DataFrame(gld_raw.loc[start_date:])
-gdx_raw = pd.read_csv('GDX_SEK.csv')
-gdx_raw = gdx_raw.set_index('Date')
-gdx = pd.DataFrame(gdx_raw.loc[start_date:])
+# gdx_raw = pd.read_csv('GDX_SEK.csv')
+# gdx_raw = gdx_raw.set_index('Date')
+# gdx = pd.DataFrame(gdx_raw.loc[start_date:])
 lynx_raw = pd.read_csv('Lynx.csv')
 lynx_raw = lynx_raw.set_index('Date')
 lynx = pd.DataFrame(lynx_raw.loc[start_date:])
@@ -75,22 +84,20 @@ amundi_raw = amundi_raw.set_index('Date')
 amundi = pd.DataFrame(amundi_raw.loc[start_date:])
 # dfs = [global_data, us_data, avanza_zero, tlt, SEB_kortranta, AMF_rantefond, gld, \
 #         gdx, lynx, SEB_selection, amundi]
-dfs = [global_data, avanza_zero, tlt, AMF_rantefond, gld, \
+dfs = [global_data, em_stock, tlt, corp_bond, em_bond, gld, \
         lynx, SEB_selection, amundi]
 # cols = ['Global', 'US', 'Ava_Z', 'TLT', 'SEB_kort', 'AMF_ranta', 'GLD',\
 #     'GDX', 'Lynx', 'SEB_select', 'Amundi']
-cols = ['Global', 'Ava_Z', 'TLT', 'AMF_ranta', 'GLD',\
+cols = ['Global', 'EM_eq', 'TLT', 'Corp_bond', 'EM_bond', 'GLD',\
     'Lynx', 'SEB_select', 'Amundi']
 data = pd.concat(dfs, axis=1).reset_index()
 data = data.set_index('Date')
 data.columns = cols
-# initial_weight = np.array([0.18,0.06,0.09,0.09,\
-#         0.19, 0.135, 0.045, 0.21])
-# initial_weight = np.array([0.18,0.00,0.06,0.09,0.00,0.09,\
-#         0.19, 0.00, 0.135, 0.045, 0.21])
+initial_weight = np.array([0.192,0.048,0.09,0.045,\
+        0.045, 0.19, 0.135, 0.045, 0.21])
 # 60/40
-initial_weight = np.array([0.6, 0, 0, 0.4, 0, 0,\
-        0,0])
+# initial_weight = np.array([0.6, 0, 0.4, 0, 0, 0, 0,\
+#         0, 0])
 ### GLOBAL VARIABLES / DATA ###
 
 def get_data_weight_every_month():
@@ -107,7 +114,7 @@ def get_data_weight_every_month():
     monthly_returns['portfolio_monthly_returns_cum'] = (1+monthly_returns['portfolio_monthly_returns']).cumprod()
     monthly_returns['portfolio_monthly_returns_cum'] = monthly_returns['portfolio_monthly_returns_cum'].fillna(1)
     monthly_returns['portfolio_monthly_returns_cum'] *= 100
-    # calc_risk(monthly_returns)
+    calc_risk(monthly_returns)
 
     # Cumulative_returns_monthly = (1+monthly_returns).cumprod()
     # Cumulative_returns_monthly.to_csv('initial_weight.csv')
@@ -194,8 +201,9 @@ def get_data_every_pct(pct):
     dynamic_portfolio = dynamic_portfolio.fillna(100).transpose()*initial_weight
     # weight_dict = {'Global':0.18, 'US':0.00, 'Ava_Z':0.06, 'TLT':0.09, 'SEB_kort':0.00, \
     #     'AMF_ranta':0.09, 'GLD':0.19, 'GDX':0.0, 'Lynx':0.135, 'SEB_select':0.045, 'Amundi':0.21}
-    weight_dict = {'Global':0.18, 'Ava_Z':0.06, 'TLT':0.09, \
-        'AMF_ranta':0.09, 'GLD':0.19, 'Lynx':0.135, 'SEB_select':0.045, 'Amundi':0.21}
+    weight_dict = {}
+    for i in range(len(cols)):
+        weight_dict[cols[i]] = initial_weight[i]
     # Kolla viktning
     transactions = 0
     for i in range(len(monthly_returns.index)):
@@ -305,7 +313,7 @@ def get_data_every_pct(pct):
     print('Number of transactions:')
     print(transactions)
     dynamic_portfolio = dynamic_portfolio.set_index(data.index)
-    calc_risk(dynamic_portfolio)
+    calc_risk(dynamic_portfolio, transactions)
     # print(dynamic_portfolio)
     return dynamic_portfolio
         
@@ -313,7 +321,7 @@ def random_weights(n):
     k = np.random.rand(n)
     return k / sum(k)
 
-def calc_risk(df):
+def calc_risk(df, transactions=False):
     # Genomsnittlig årlig avkastning
     print(df)
     cagr = (df['portfolio_monthly_returns_cum'].iloc[-1]/df['portfolio_monthly_returns_cum'].iat[0])**(1/years) - 1
@@ -323,6 +331,9 @@ def calc_risk(df):
     std_dev = df['portfolio_monthly_returns'].std()
     print('STD DEV:')
     print(std_dev*12)
+    print('VOL:')
+    vol = (std_dev*math.sqrt(12))*100
+    print(vol)
     mean_return = df['portfolio_monthly_returns'].mean()
     sharpe_ratio = mean_return / std_dev
     sharpe_ratio_yearly = sharpe_ratio*12
@@ -338,8 +349,11 @@ def calc_risk(df):
     df['monthly_drawdown'] = monthly_drawdown
     print('MAX DRAWDOWN:')
     print(max_monthly_drawdown.min())
-    create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon portfolio (reweight every 10%)')
-    create_figure(df, 'monthly_drawdown', 'Dragon portfolio, drawdowns (reweight every 10%)')
+    if transactions:
+        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 20%)', cagr, vol, sharpe_ratio_yearly, transactions)
+    else:
+        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 12th month)', cagr, vol, sharpe_ratio_yearly)
+    create_figure(df, 'monthly_drawdown', 'Dragon Portfolio (Rebalance every 20%), drawdowns')
     # max_monthly_drawdown.plot()
     # plt.show()
 
@@ -378,11 +392,11 @@ def fire(df):
     print(money_left[-1]/money_left[0])
     df['expenses'] = expenses
     df['expenses'] *= 25
-    create_figure(df, 'money_left', 'Money left (start with 25X yearly expenses) - 60/40', 'expenses', '25X yearly expenses')
+    create_figure2(df, 'money_left', 'Money left (start with 25X yearly expenses) - 60/40', 'expenses', '25X yearly expenses')
     return
 
 
-def create_figure(df, series_name, label, series_name2=False, label2=False):
+def create_figure(df, series_name, label, cagr=False, vol=False, sharpe=False, transactions=False):
     fig, ax1 = plt.subplots(figsize=(10, 8))
     x_start = len(df.index) % 79 - 1
     if x_start < 0:
@@ -390,8 +404,6 @@ def create_figure(df, series_name, label, series_name2=False, label2=False):
         # x_start = len(df.index) // 53 - 1
     # ax1.set_ylabel('Andel över sitt 200 Day Moving Average', color=color)
     ax1.plot(df.index[x_start:], df[series_name].iloc[x_start:], label=label)
-    if series_name2:
-        ax1.plot(df.index[x_start:], df[series_name2].iloc[x_start:], label=label2)
     # ax1.tick_params(axis='y')
     every_nth = len(df.index) // 79
     num = 2
@@ -410,8 +422,15 @@ def create_figure(df, series_name, label, series_name2=False, label2=False):
     ax1.set_xlim(df.index[x_start], df.index[-1])
     ax1.tick_params(axis='x', rotation=40)
     ax1.legend()
+    if cagr:
+        plt.annotate('Annualized return: ' + str(round(cagr*100, 1)) + ' %', xy=(0.05, 0.88), xycoords='axes fraction', size='medium')
+        plt.annotate('Volatility: ' + str(round(vol, 1)), xy=(0.05, 0.84), xycoords='axes fraction', size='medium')
+        plt.annotate('Sharpe ratio: ' + str(round(sharpe, 2)), xy=(0.05, 0.8), xycoords='axes fraction', size='medium')
+    if transactions:
+        plt.annotate('Number of transactions: ' + str(transactions), xy=(0.05, 0.76), xycoords='axes fraction', size='medium')
     plt.title(label)
-    # ax1.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+    if not cagr:
+        ax1.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     # ax1.xaxis_date()
     # ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     # ax1.xaxis.set_major_locator(mtick.MaxNLocator(30))
@@ -421,7 +440,36 @@ def create_figure(df, series_name, label, series_name2=False, label2=False):
     # fig.savefig(name, dpi=250)
     plt.close(fig)
 
-fire(get_data_weight_every_month())
+def create_figure2(df, series_name, label, series_name2=False, label2=False):
+    fig, ax1 = plt.subplots(figsize=(10, 8))
+    x_start = len(df.index) % 79 - 1
+    if x_start < 0:
+        x_start = 0
+    ax1.plot(df.index[x_start:], df[series_name].iloc[x_start:], label=label)
+    if series_name2:
+        ax1.plot(df.index[x_start:], df[series_name2].iloc[x_start:], label=label2)
+    every_nth = len(df.index) // 79
+    num = 2
+    for n, lab in enumerate(ax1.xaxis.get_ticklabels()):
+        if n % every_nth != 0:
+            lab.set_visible(False)
+            num += 1
+        else:
+            if num % 3 == 0:
+                lab.set_visible(False)
+                num += 1
+    for n, tick in enumerate(ax1.axes.get_xticklines()):
+        if n % every_nth != 0:
+            tick.set_visible(False)
+    ax1.set_xticklabels(df.index[x_start:], rotation=40, ha='right')
+    ax1.set_xlim(df.index[x_start], df.index[-1])
+    ax1.tick_params(axis='x', rotation=40)
+    ax1.legend()
+    plt.title(label)
+    plt.show()
+    plt.close(fig)
+
+# fire(get_data_weight_every_month())
 # get_data_weight_every_month()
 # get_data_weight_every_x_month(12)
-# get_data_every_pct(10)
+get_data_every_pct(20)
