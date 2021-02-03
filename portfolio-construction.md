@@ -40,7 +40,7 @@ I'm using ETFs, so it is easy to get in and out when I like. For MSCI World expo
 This one is probably the bucket I found hardest to implement. European bonds barely pays anything. Sure they can fall further below 0, but I'm not playing that game. So, how should you divide this bucket? The only developed country where you can get any yield today is basically the US. So, I'm thinking about putting 50% in long US bonds. Then 25% in company bonds and 25% in emerging market bonds. Not super happy with that allocation, but it is what it is. So, the following as long as these rates gives me some yield:
 
 * 50% US treasury bonds (20+ years)
-* 25% Corporate bonds (highly rates companies in the developed world)
+* 25% Corporate bonds (highly rated companies in the developed world)
 * 25% Emerging market bonds
 
 Vehicles to use for this:
@@ -61,7 +61,7 @@ This one is fairly easy. I'm going to divide it like this;
 
 In the paper it is suggested to put everything in physical gold. But, for tax reasons and ease of rebalancing, 25% is going in an ETF. This gives me the following:
 
-* Physical gold - Your preferred site. I like bullionstar.com as it's founder is a Swedish veteran and I've had a great experience there. I've had a bad experience with goldmoney.com (and there fee structure sucks for smaller investors). But no recommendations, DYOR.
+* Physical gold - Your preferred site. I like bullionstar.com as it's founder is a Swedish veteran and I've had a great experience there. I've had a bad experience with goldmoney.com (and their fee structure sucks for smaller investors). But no recommendations, DYOR.
 * Gold ETF -  "WisdomTree Physical Swiss Gold (GZUR)". Fee 0.15%.
 
 Finding a great gold ETF in Europe was harder then expected. But I've used the above fund for some time and hopefully they have all of the gold they say they have.
@@ -89,13 +89,13 @@ You should be able to invest smaller amounts in all of these funds (but may have
 
 This is IMO the most interesting "bucket". In the paper, funds in "Eurekahedge CBOE Long Volatility Hedge Fund Index" is suggested as alternatives. As before, very hard to find information. But here I managed to dig out the components from 2019 at least. 11 funds (but only 8 different companies). One of these funds looks readily available to European investors. That's the fund "Amundi Fds Volatil Wld". That fund has been around since 2007 and must be one of the longest standing actors in this space. 
 
-Other funds in the index is "Seeyond Volatility Strategy (NVOLACI LX Equity)" [https://www.im.natixis.com/latam/funds/seeyond-equity-volatility-strategies/lu0935232610](https://www.im.natixis.com/latam/funds/seeyond-equity-volatility-strategies/lu0935232610). From what I can find, it should be possible for European investors to invest with a minimum investment of €50 000. However I have not found any way for me in Sweden to do this. But maybe it's easier in other countries. The same goes for the fund "Bréhat Class I" [https://www.vivienne-investissement.com/EN/OurFunds.php?p=BI](https://www.vivienne-investissement.com/EN/OurFunds.php?p=BI). It's not in the long vol index (at least as of 2019), but it's a long vol fund. Minimum investment in Brehat is €100 000, but haven't found a way to invest from Sweden here either.
+Another fund in the index is "Seeyond Volatility Strategy (NVOLACI LX Equity)" [https://www.im.natixis.com/latam/funds/seeyond-equity-volatility-strategies/lu0935232610](https://www.im.natixis.com/latam/funds/seeyond-equity-volatility-strategies/lu0935232610). From what I can find, it should be possible for European investors to invest with a minimum investment of €50 000. However I have not found any way for me in Sweden to do this. But maybe it's easier in other countries. The same goes for the fund "Bréhat Class I" [https://www.vivienne-investissement.com/EN/OurFunds.php?p=BI](https://www.vivienne-investissement.com/EN/OurFunds.php?p=BI). It's not in the long vol index (at least as of 2019), but it's a long vol fund. Minimum investment in Brehat is €100 000, but haven't found a way to invest from Sweden here either.
 
 If you have $100 000 to invest in this bucket there's a fairly new "fund of funds" you could look into. It's called "Mutiny Fund" [https://mutinyfund.com/](https://mutinyfund.com/) and gives you exposure to funds like Logica and Artemis Capital. It is open to European investors. 
 
-I'm planning on using Mutiny myself. Firstly because I will get exposure to many more funds. Secondly because they handle the allocation between funds for you. It reduces the risk to allocate to something else then you thought (especially if you are a novice like me).
+I'm planning on using Mutiny myself. Firstly because I will get exposure to many more funds. Secondly because they handle the allocation between funds for me. It reduces the risk to allocate to something else then you thought (especially if you are a novice like me).
 
-If you don't have $100k to put in the volatility bucket, Mutiny offers a combination of exposure to S&P and long vol as well, contact them for more info. Otherwise you'll have to put everything in Amundis fund. It's most likely a fine fund, but I'd like a bit more diversification then that. The entry fee to Amundis fund is 4.5%, so you would lose that capital up front. My allocation will be this:
+If you don't have $100k to put in the volatility bucket, Mutiny offers a combination of exposure to S&P and long vol as well (still min $100k but you can take some of your equity exposure and put here maybe), contact them for more info. Otherwise you'll have to put everything in Amundis fund. It's most likely a fine fund, but I'd like a bit more diversification then that. The entry fee to Amundis fund is 4.5%, so you would lose that capital up front. My allocation will be this:
 
 * 100% - "Mutiny Fund". Fee 1% + 10% performance fee.
 

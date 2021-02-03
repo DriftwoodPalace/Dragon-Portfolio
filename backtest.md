@@ -14,15 +14,15 @@ Lets backtest the portfolio! All my code and data is available at my [Github pag
 * Changed weighting in the Long volatility bucket so "Amundi Fds Volatil Wld A2 USD" carries 100% of that weight.
 * Adjusted all returns to SEK.
 
-The modifications where the ETF is changed to the index it tracks shouldn't do much to returns. The change to MSCI Emerging markets includes China, so that could change the returns.
+The first 3 modifications shouldn't change returns much as it's changed to the index it tracks or to a similar ETF. The change to MSCI Emerging markets includes China, so that could change the returns.
 
 Gold should be the same.
 
-The change in the "CTA bucket" shouldn't do to much as Lynx and SEB is the largest parts in my "real" portfolio.
+The change in the "CTA bucket" shouldn't do much as Lynx and SEB is the largest parts in my "real" portfolio.
 
 The largest risk is with the change to Amundi Fds Volatil Wld. Mutniy fund has a very limited history, so I have to use something else.   
 
-Amundi Fds Volatil Wld has performed as I expect a long vol fund would perform. Big returns in periods like 2008 and 2020 and small losses along the way, plus that I can get data back to 2007. So, hopefully this change wont do that much. 
+Amundi Fds Volatil Wld has performed as I expect a long vol fund would perform. Big returns in periods like 2008 and 2020 and small losses along the way and I can get data back to 2007. So, hopefully this change wont do that much. 
 
 With these modification I have data going back to **November 2007**. Ideally I would like more, but this at least captures the financial crisis etc. I'm not using any leverage (except if the funds are using it by themselves) in my calculations. Returns include fees where the index is used and are in Swedish krona (SEK).
 
