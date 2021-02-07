@@ -28,7 +28,7 @@ With these modification I have data going back to **November 2007**. Ideally I w
 
 ### Returns for all components
 
-Before we start, lets look how all individual components have performed.
+Before we start, lets look how all individual components have performed. All returns are total returns (dividends reinvested).
 
 ![MSCI_World](../assets/MSCI_World.png)
 
@@ -167,4 +167,4 @@ I'm personally leaning against setting a limit of a +-15% change for any individ
 
 I could live with that for the advantage of doing fewer trades.
 
-The volatility and sharpe ratio is low for the portfolio. So, using some leverage might increase your returns. I might use 10-20% leverage myself.
+The volatility is fairly low and the sharpe ratio is decent. So, using some leverage might increase your returns. If I get a good deal, I might use 10-20% leverage myself.
