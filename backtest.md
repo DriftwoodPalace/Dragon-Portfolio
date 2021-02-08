@@ -28,7 +28,21 @@ With these modification I have data going back to **November 2007**. Ideally I w
 
 ### Returns for all components
 
-Before we start, lets look how all individual components have performed. All returns are total returns (dividends reinvested).
+Before we start, lets look how all individual components have performed. All returns are total returns (dividends reinvested). 
+
+Here's a brief explanation on what the different variables in the graph are:
+
+*Volatility:* One yearly standard deviation of the returns (where 68% of the observations falls between for a normal distribution). So if the volatility is 10% and the mean yearly return is 5%, 68% of the observations for yearly returns falls between -5% and 15%. This number if of limited use as tails (very rare events) might be discounted in the calculation. 
+
+*Sharpe ratio:* The Sharpe ratio are often used to determine the relative performance of portfolios. The Sharpe ratios of individual asset classes are generally in the vicinity of 0.2 to 0.3 over the long-run. A value between 0 and 1 signifies that the returns derived are better than the risk-free rate, but their excess risks exceed their excess returns. A value above 1 denotes that the returns are not only better than the risk-free rate, but excess returns are above their excess risks. More reading [https://www.daytrading.com/sharpe-ratio](https://www.daytrading.com/sharpe-ratio). I'm using 3-month US Treasury bills as the risk-free rate. The sharpe ratio uses the standard deviation in the calculation (and with that the same weakness). 
+
+*Sortino ratio:* The Sortino ratio is very similar to the Sharpe ratio, the only difference being that where the Sharpe ratio uses all the observations for calculating the standard deviation the Sortino ratio only considers the negative values. The reasoning is that we are not to worried about deviations on the upside but we want to make sure we have a limited downside. This is probably the most interesting number for this portfolio (but again, might discount extreme events to much).
+
+*Max drawdown:* Self explanatory, the maximum drawdown from peak to trough.
+
+*Calmar ratio:* Uses the maximum drawdown and the mean yearly return to calculate a ratio. So if you have very high returns with a large max drawdown, this number will be lower then if you've has a smaller max drawdown. Interesting to me as I want to minimize the drawdowns to maximize the compound effect. This number will capture extreme events better. So to look at all these measures are important to get a more complete picture.
+
+Now we can get to the numbers:
 
 ![MSCI_World](../assets/MSCI_World.png)
 
