@@ -82,6 +82,9 @@ SEB_selection = pd.DataFrame(SEB_selection_raw.loc[start_date:])
 amundi_raw = pd.read_csv('Amundi_long_SEK.csv')
 amundi_raw = amundi_raw.set_index('Date')
 amundi = pd.DataFrame(amundi_raw.loc[start_date:])
+risk_free_rate_raw = pd.read_csv('risk_free_rate.csv')
+risk_free_rate_raw = risk_free_rate_raw.set_index('Date')
+risk_free_rate = pd.DataFrame(risk_free_rate_raw.loc[start_date:])
 # dfs = [global_data, us_data, avanza_zero, tlt, SEB_kortranta, AMF_rantefond, gld, \
 #         gdx, lynx, SEB_selection, amundi]
 dfs = [global_data, em_stock, tlt, corp_bond, em_bond, gld, \
@@ -323,23 +326,30 @@ def random_weights(n):
 
 def calc_risk(df, transactions=False):
     # Genomsnittlig årlig avkastning
-    print(df)
+    # print(df)
     cagr = (df['portfolio_monthly_returns_cum'].iloc[-1]/df['portfolio_monthly_returns_cum'].iat[0])**(1/years) - 1
     print('ÅRLIG AVKASTNING')
     print(cagr)
     # Std dev & sharpe
     std_dev = df['portfolio_monthly_returns'].std()
-    print('STD DEV:')
-    print(std_dev*12)
+    std_neg = df['portfolio_monthly_returns'][df['portfolio_monthly_returns']<0].std()
+    print(df['portfolio_monthly_returns'][df['portfolio_monthly_returns']<0])
+    # data2 = data.index[data['valuecol1'] > 0]
+    # print('STD DEV:')
+    # print(std_dev*12)
     print('VOL:')
     vol = (std_dev*math.sqrt(12))*100
     print(vol)
     mean_return = df['portfolio_monthly_returns'].mean()
-    sharpe_ratio = mean_return / std_dev
-    sharpe_ratio_yearly = sharpe_ratio*12
+    mean_return_rate = risk_free_rate['Rate'].mean()
+    sharpe_ratio = (mean_return-mean_return_rate) / std_dev
+    sharpe_ratio_yearly = sharpe_ratio*math.sqrt(12)
     print('SHARPE RATIO:')
     print(sharpe_ratio_yearly)
-
+    sortiono = (mean_return-mean_return_rate) / std_neg
+    sortiono_yearly = sortiono*math.sqrt(12)
+    print('SORTINO RATIO: ')
+    print(sortiono_yearly)
     # Max yearly drawdown
     # Räknar ut mavärdet som varit från start
     roll_max = df['portfolio_monthly_returns_cum'].cummax()
@@ -349,10 +359,15 @@ def calc_risk(df, transactions=False):
     df['monthly_drawdown'] = monthly_drawdown
     print('MAX DRAWDOWN:')
     print(max_monthly_drawdown.min())
+    calmars = (mean_return*12)/abs(max_monthly_drawdown.min())
+    print('CALMARS RATIO: ')
+    print(calmars)
     if transactions:
-        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 20%)', cagr, vol, sharpe_ratio_yearly, transactions)
+        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 20%)', cagr, vol, sharpe_ratio_yearly, \
+            sortiono_yearly, max_monthly_drawdown.min(), calmars, transactions)
     else:
-        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 12th month)', cagr, vol, sharpe_ratio_yearly)
+        create_figure(df, 'portfolio_monthly_returns_cum', 'Dragon Portfolio (Rebalance every 12th month)', cagr, vol, sharpe_ratio_yearly, \
+            sortiono_yearly, max_monthly_drawdown.min(), calmars)
     create_figure(df, 'monthly_drawdown', 'Dragon Portfolio (Rebalance every 20%), drawdowns')
     # max_monthly_drawdown.plot()
     # plt.show()
@@ -396,7 +411,7 @@ def fire(df):
     return
 
 
-def create_figure(df, series_name, label, cagr=False, vol=False, sharpe=False, transactions=False):
+def create_figure(df, series_name, label, cagr=False, vol=False, sharpe=False, sortino=False, max_drawdown=False, calmars=False, transactions=False):
     fig, ax1 = plt.subplots(figsize=(10, 8))
     x_start = len(df.index) % 79 - 1
     if x_start < 0:
@@ -426,8 +441,11 @@ def create_figure(df, series_name, label, cagr=False, vol=False, sharpe=False, t
         plt.annotate('Annualized return: ' + str(round(cagr*100, 1)) + ' %', xy=(0.05, 0.88), xycoords='axes fraction', size='medium')
         plt.annotate('Volatility: ' + str(round(vol, 1)), xy=(0.05, 0.84), xycoords='axes fraction', size='medium')
         plt.annotate('Sharpe ratio: ' + str(round(sharpe, 2)), xy=(0.05, 0.8), xycoords='axes fraction', size='medium')
+        plt.annotate('Sortino ratio: ' + str(round(sortino, 2)), xy=(0.05, 0.76), xycoords='axes fraction', size='medium')
+        plt.annotate('Max drawdown: ' + str(round(max_drawdown, 2)) + ' %', xy=(0.05, 0.72), xycoords='axes fraction', size='medium')
+        plt.annotate('Calmar ratio: ' + str(round(calmars, 2)), xy=(0.05, 0.68), xycoords='axes fraction', size='medium')
     if transactions:
-        plt.annotate('Number of transactions: ' + str(transactions), xy=(0.05, 0.76), xycoords='axes fraction', size='medium')
+        plt.annotate('Number of transactions: ' + str(transactions), xy=(0.05, 0.64), xycoords='axes fraction', size='medium')
     plt.title(label)
     if not cagr:
         ax1.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
