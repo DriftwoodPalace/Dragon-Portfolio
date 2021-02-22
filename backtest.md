@@ -5,9 +5,10 @@ title: 2. Backtest
 
 Lets backtest the portfolio! All my code and data is available at my [Github page](https://github.com/DriftwoodPalace/Dragon-Portfolio/tree/main/code). As data for some of the funds are limited, I've had to make some changes to the portfolio for the backtest. The changes I've made, compared to the portfolio I'm planning to implement are the following:
 
-* "SPDR MSCI World UCITS ETF" changed to "MSCI World, net total return"
-* "Lyxor MSCI Emerging Markets ex China UCITS ETF" changed to (MSCI Emerging markets, net total return)
-* "iShares $ Treasury Bond 20+yr UCITS ETF" changed to "iShares 20+ Year Treasury Bond ETF (TLT)".
+* "SPDR MSCI World UCITS ETF" changed to 80% "MSCI World, net total return".
+* My emerging market crisis strategy changed to 20% "MSCI Emerging markets, net total return".
+* "iShares $ Treasury Bond 20+yr UCITS ETF" changed to "iShares 20+ Year Treasury Bond ETF (TLT)". 
+* US 10 year treasuries swapped for EM-bonds as representation of the EM crisis strategy. Should probably do a new test with 10y yields. But the 4,5% weight shouldn't do much to the portfolio.
 * "iShares Global Corporate Bond EUR Hedged UCITS ETF" changed to "Barclays global Corp" (that it is tracking).
 * "WisdomTree Physical Swiss Gold (GZUR)" changed to "SPDR Gold Shares (GLD)".
 * Changed weighting in the Commodity trend bucket so "Lynx" carries 75% of that weight and "SEB Asset Selection C SEK - Lux" 25%.
@@ -36,13 +37,15 @@ Here's a brief explanation on what the different variables in the graph are:
 
 *Sharpe ratio:* The Sharpe ratio are often used to determine the relative performance of portfolios. The Sharpe ratios of individual asset classes are generally in the vicinity of 0.2 to 0.3 over the long-run. A value between 0 and 1 signifies that the returns derived are better than the risk-free rate, but their excess risks exceed their excess returns. A value above 1 denotes that the returns are not only better than the risk-free rate, but excess returns are above their excess risks. More reading [https://www.daytrading.com/sharpe-ratio](https://www.daytrading.com/sharpe-ratio). I'm using 3-month US Treasury bills as the risk-free rate. The sharpe ratio uses the standard deviation in the calculation (and with that the same weakness). 
 
-*Sortino ratio:* The Sortino ratio is very similar to the Sharpe ratio, the only difference being that where the Sharpe ratio uses all the observations for calculating the standard deviation the Sortino ratio only considers the negative values. The reasoning is that we are not to worried about deviations on the upside but we want to make sure we have a limited downside. This is probably the most interesting number for this portfolio (but again, might discount extreme events to much).
+*Sortino ratio:* The Sortino ratio is very similar to the Sharpe ratio, the only difference being that where the Sharpe ratio uses all the observations for calculating the standard deviation the Sortino ratio only considers the negative values. The reasoning is that we are not to worried about deviations on the upside but we want to make sure we have a limited downside. 
 
 *Max drawdown:* Self explanatory, the maximum drawdown from peak to trough.
 
-*Calmar ratio:* Uses the maximum drawdown and the mean yearly return to calculate a ratio. So if you have very high returns with a large max drawdown, this number will be lower then if you've has a smaller max drawdown. Interesting to me as I want to minimize the drawdowns to maximize the compound effect. This number will capture extreme events better. So to look at all these measures are important to get a more complete picture.
+*Calmar ratio:* Uses the maximum drawdown and the mean yearly return to calculate a ratio. So if you have very high returns with a large max drawdown, this number will be lower then if you've had a smaller max drawdown. Interesting to me as I want to minimize the drawdowns to maximize the compound effect. This number will capture extreme events better. 
 
-Now we can get to the numbers:
+So to look at all these measures are important to get a more complete picture for the risk for the portfolio.
+
+Now we can get to the numbers for the components:
 
 ![MSCI_World](../assets/MSCI_World.png)
 
